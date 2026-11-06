@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f161b">
+<title>دستیار هوشمند واحد HSED | PTB GROUP</title>
+<style>
+:root{--ink:#0f161b;--slate:#26343b;--ember:#d4513f;--amber:#e6b36a;--mist:#e8eef0;--dim:#aebbc0;--g:rgba(255,255,255,.08);--gb:rgba(255,255,255,.18)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:Vazirmatn,Tahoma,system-ui,sans-serif;color:var(--mist);background:var(--ink);line-height:1.9;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:linear-gradient(160deg,#10181d,#1d2a31 55%,#0f161b)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
+.o1{width:46vmax;height:46vmax;background:var(--ember);top:-18vmax;right:-12vmax}
+.o2{width:38vmax;height:38vmax;background:#3f6a73;bottom:-14vmax;left:-10vmax;animation-duration:28s}
+.o3{width:22vmax;height:22vmax;background:var(--amber);top:42%;left:38%;opacity:.22;animation-duration:34s}
+@keyframes drift{to{transform:translate3d(-6vmax,5vmax,0) scale(1.12)}}
+.glass{background:var(--g);border:1px solid var(--gb);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.22);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%)}
+.wrap{max-width:1100px;margin:auto;padding:16px 18px 28px}
+.nav{position:sticky;top:12px;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 12px 9px 18px;border-radius:999px;margin-bottom:26px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;font:700 11px Tahoma;letter-spacing:.5px;color:#fff;background:linear-gradient(145deg,#e0604d,#7a2222);box-shadow:inset 0 1px rgba(255,255,255,.5),0 6px 16px rgba(0,0,0,.4)}
+.brand b{display:block;font-size:14px;line-height:1.5}.brand small{display:block;font-size:12px;color:var(--dim);line-height:1.5}
+.group{direction:ltr;font:600 13px Tahoma;letter-spacing:2px;color:var(--amber);padding:7px 14px;border-radius:999px;border:1px solid var(--gb);background:var(--g);white-space:nowrap}
+.hero{position:relative;overflow:hidden;border-radius:32px;padding:clamp(28px,6vw,64px);margin-bottom:18px;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:7px;background:repeating-linear-gradient(125deg,rgba(20,24,26,.85) 0 12px,var(--amber) 12px 24px);opacity:.85}
+@keyframes rise{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.hero h1{margin:0 0 14px;font-size:clamp(30px,6vw,58px);line-height:1.4;font-weight:800;letter-spacing:-.5px;background:linear-gradient(100deg,#fff 30%,#f3c9a0 70%,#e98f7e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;margin:0 0 22px;font-size:15px;color:#d5dee1}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--gb);background:rgba(255,255,255,.1)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.card{font:inherit;color:inherit;text-align:right;cursor:pointer;padding:20px;border-radius:24px;display:flex;flex-direction:column;gap:4px;transition:transform .25s,background .25s,border-color .25s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);background:rgba(255,255,255,.14);border-color:rgba(230,179,106,.6)}
+.card .ico{font-size:26px;line-height:1.4}.card b{font-size:15px}.card small{font-size:13px;color:var(--dim)}
+.chat{border-radius:28px;overflow:hidden}
+.bar,.controls,.composer{display:flex;align-items:center;gap:10px;padding:14px 18px}
+.bar{justify-content:space-between;border-bottom:1px solid var(--gb)}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
+.status:before{content:"";width:8px;height:8px;border-radius:50%;background:#5fd08a;box-shadow:0 0 10px #5fd08a}
+.status.busy:before{background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.status.fail:before{background:var(--ember);box-shadow:0 0 10px var(--ember)}
+.controls{flex-wrap:wrap;border-bottom:1px solid var(--gb)}
+.controls label{font-size:13px}
+select{font-size:13px;font-family:inherit;color:var(--mist);background:rgba(15,22,27,.6);border:1px solid var(--gb);border-radius:12px;padding:9px 12px}
+select option{color:#111}
+.hint{font-size:12px;color:var(--amber)}
+.messages{height:min(54vh,540px);min-height:300px;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:12px;background:rgba(5,9,12,.25)}
+.welcome{margin:auto;text-align:center;color:var(--dim);font-size:14px}
+.msg{max-width:84%;padding:12px 16px;border-radius:20px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid var(--gb)}
+.user{align-self:flex-start;border-top-right-radius:6px;background:linear-gradient(145deg,rgba(212,81,63,.55),rgba(122,34,34,.5))}
+.assistant{align-self:flex-end;border-top-left-radius:6px;background:var(--g);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.err{border-color:rgba(212,81,63,.7)}
+.typing{animation:pulse 1.2s ease-in-out infinite}@keyframes pulse{50%{opacity:.45}}
+.meta{font-size:11px;color:var(--dim);margin-top:6px}
+.composer{border-top:1px solid var(--gb);align-items:stretch;padding:14px 18px 8px}
+textarea{flex:1;min-width:0;min-height:56px;resize:vertical;font-size:14px;font-family:inherit;color:#fff;background:rgba(15,22,27,.55);border:1px solid var(--gb);border-radius:18px;padding:12px 16px;outline:none}
+textarea:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(230,179,106,.2)}
+textarea::placeholder{color:#8fa0a6}
+.send{border:1px solid rgba(255,255,255,.35);border-radius:18px;padding:0 26px;font-weight:700;font-size:14px;font-family:inherit;color:#fff;cursor:pointer;background:linear-gradient(145deg,#e0604d,#8a2727);box-shadow:inset 0 1px rgba(255,255,255,.4),0 8px 20px rgba(212,81,63,.35);transition:transform .2s}
+.send:hover:not(:disabled){transform:translateY(-2px)}.send:disabled{opacity:.5;cursor:wait}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:4px 18px 14px}
+.minor{font-size:12px;font-family:inherit;color:var(--mist);cursor:pointer;background:var(--g);border:1px solid var(--gb);border-radius:999px;padding:6px 14px}
+.note{font-size:12px;color:var(--dim)}
+.footer{text-align:center;font-size:12px;color:var(--dim);padding:20px 0 0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media(max-width:700px){.wrap{padding:10px 12px 20px}.group{display:none}.cards{grid-template-columns:1fr}.msg{max-width:94%}.messages{height:56dvh}.send{padding:0 18px}.card{flex-direction:row;align-items:center;gap:12px}.card .ico{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+<div class="wrap">
+<header class="nav glass">
+  <div class="brand"><div class="logo">HSED</div><div><b>واحد HSED</b><small>تهران کانتینر (TCT) · کانشیپ (CONSHIP)</small></div></div>
+  <div class="group">PTB GROUP</div>
+</header>
+
+<section class="hero glass">
+  <h1>دستیار هوشمند واحد HSED</h1>
+  <p>مرجع پشتیبانی بهداشت، ایمنی، محیط زیست و امنیت؛ برای تحلیل مخاطرات، بررسی حوادث، تدوین مستندات و ارتقای ایمنی عملیات ترمینال کانتینری.</p>
+  <div class="pills"><span class="pill">تهران کانتینر · TCT</span><span class="pill">کانشیپ · CONSHIP</span></div>
+</section>
+
+<section class="cards" aria-label="حوزه‌های تخصصی HSED">
+  <button type="button" class="card glass" data-prompt="برای فعالیت‌های ترمینال کانتینری، ارزیابی ریسک HSE تهیه کن."><span class="ico">⚠️</span><span><b>ارزیابی ریسک و JSA</b><br><small>شناسایی خطرات و تعیین اقدامات کنترلی</small></span></button>
+  <button type="button" class="card glass" data-prompt="در تحلیل حوادث و شبه‌حوادث ترمینال کانتینری کمکم کن."><span class="ico">🧾</span><span><b>حوادث و شبه‌حوادث</b><br><small>تحلیل علت ریشه‌ای و اقدامات اصلاحی</small></span></button>
+  <button type="button" class="card glass" data-prompt="یک آموزش کوتاه HSED برای کارکنان ترمینال کانتینری آماده کن."><span class="ico">🎓</span><span><b>آموزش و فرهنگ ایمنی</b><br><small>آموزش کوتاه، Toolbox و دستورالعمل</small></span></button>
+</section>
+
+<main class="chat glass" id="chat">
+  <div class="bar"><strong>گفت‌وگوی تخصصی HSED</strong><span class="status" id="status" role="status">آماده پاسخ‌گویی</span></div>
+  <div class="controls"><label for="model">مدل پاسخ‌گو:</label>
+    <select id="model">
+      <option value="auto">خودکار (Groq ← OpenRouter رایگان)</option>
+      <option value="groq-20b">Groq · GPT-OSS 20B</option>
+      <option value="groq-120b">Groq · GPT-OSS 120B</option>
+      <option value="deepseek">DeepSeek V4.1 Flash · OpenRouter</option>
+      <option value="openrouter-free">OpenRouter · مدل رایگان خودکار</option>
+    </select>
+    <span class="hint" id="hint">ابتدا Groq و سپس مسیر رایگان OpenRouter امتحان می‌شود.</span>
+  </div>
+  <section class="messages" id="messages" aria-live="polite"><div class="welcome" id="welcome">به دستیار هوشمند واحد HSED خوش آمدید.<br>سؤال خود را درباره ایمنی عملیات کانتینری، تجهیزات، حوادث، ارزیابی ریسک یا مستندات HSED بنویسید.</div></section>
+  <div class="composer"><textarea id="prompt" rows="2" aria-label="پیام شما" placeholder="پیام خود را بنویسید… (Ctrl + Enter برای ارسال)"></textarea><button type="button" class="send" id="send">ارسال</button></div>
+  <div class="foot"><button type="button" class="minor" id="clear">گفت‌وگوی جدید</button><span class="note">کلیدهای API فقط در سرور نگهداری می‌شوند. DeepSeek ممکن است هزینه توکنی داشته باشد. اطلاعات محرمانه ارسال نکنید.</span></div>
+</main>
+<div class="footer">واحد HSED · گروه شرکت‌های پرس (PTB GROUP) · تهران کانتینر (TCT) · کانشیپ (CONSHIP)</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let chat=[],busy=false,ctrl=null,gen=0;
+const hints={auto:"ابتدا Groq و سپس مسیر رایگان OpenRouter امتحان می‌شود.","groq-20b":"Groq GPT-OSS 20B؛ انتخاب مستقیم.","groq-120b":"Groq GPT-OSS 120B؛ انتخاب مستقیم.",deepseek:"DeepSeek از طریق OpenRouter؛ ممکن است هزینه داشته باشد.","openrouter-free":"انتخاب خودکار یک مدل رایگان از OpenRouter."};
+const setStatus=(t,c="")=>{$("status").textContent=t;$("status").className="status "+c};
+$("model").onchange=()=>$("hint").textContent=hints[$("model").value];
+document.querySelectorAll(".card").forEach(b=>b.onclick=()=>{$("prompt").value=b.dataset.prompt;$("chat").scrollIntoView({behavior:"smooth"});$("prompt").focus()});
+function add(role,text,meta,cls){
+  const w=$("welcome");if(w)w.remove();
+  const d=document.createElement("div");d.className="msg "+role+(cls?" "+cls:"");d.textContent=text;
+  if(meta){const m=document.createElement("div");m.className="meta";m.textContent=meta;d.appendChild(m)}
+  $("messages").appendChild(d);$("messages").scrollTop=$("messages").scrollHeight;return d;
+}
+$("clear").onclick=()=>{gen++;if(ctrl)ctrl.abort();chat=[];$("messages").innerHTML='<div class="welcome" id="welcome">گفت‌وگوی جدید آغاز شد.</div>';setStatus("آماده پاسخ‌گویی")};
+async function send(){
+  if(busy)return;
+  const text=$("prompt").value.trim();if(!text)return;
+  const g=gen;chat.push({role:"user",content:text});$("prompt").value="";
+  const u=add("user",text),t=add("assistant","در حال نوشتن…","","typing");
+  busy=true;$("send").disabled=true;setStatus("در حال دریافت پاسخ…","busy");
+  let timedOut=false;ctrl=new AbortController();const to=setTimeout(()=>{timedOut=true;ctrl.abort()},60000);
+  try{
+    const r=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:chat.slice(-20),provider:$("model").value}),signal:ctrl.signal});
+    const raw=await r.text();let data={};try{data=JSON.parse(raw)}catch{}
+    if(g!==gen)return;
+    if(!r.ok||!data.reply)throw new Error(data.error||("پاسخ نامعتبر از سرور ("+r.status+")"));
+    chat.push({role:"assistant",content:data.reply});t.remove();
+    add("assistant",data.reply,"ارائه‌دهنده: "+(data.provider||"نامشخص")+" | مدل: "+(data.model||"نامشخص"));
+    setStatus("پاسخ دریافت شد");
+  }catch(e){
+    if(g!==gen)return;
+    chat.pop();u.remove();t.remove();$("prompt").value=text;
+    add("assistant","ارسال ناموفق بود: "+(timedOut?"زمان پاسخ‌گویی به پایان رسید.":(e&&e.message==="Failed to fetch"?"اتصال به /api/chat برقرار نشد (سرور یا مسیر API در دسترس نیست).":(e&&e.message)||"خطای نامشخص"))+" پیام شما در کادر ورودی نگه داشته شد.","","err");
+    setStatus("ارسال ناموفق","fail");
+  }finally{clearTimeout(to);if(g===gen){busy=false;$("send").disabled=false;$("prompt").focus()}else{busy=false;$("send").disabled=false}}
+}
+$("send").onclick=send;
+$("prompt").addEventListener("keydown",e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();send()}});
+</script>
+</body>
+</html>
